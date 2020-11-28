@@ -1,0 +1,26 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+.image-container{
+    width:70vw;
+    height:70vw;
+    border:1px solid #ddd;
+    border-radius:50%;
+}
+.slider-container{
+    margin-bottom:1rem;
+}
+label{
+    margin-bottom:0;
+}
+
+
+@media only screen and (min-width: 600px) {
+    .image-container{
+        width:400px;
+        height:400px;
+        border-radius:50%;
+    }   
+}
