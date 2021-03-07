@@ -1,29 +1,25 @@
-import React, { useState, useContext } from "react";
-import { ColorContext } from "../contexts/ColorContext";
+import React from "react";
+import { useColors, useColorUpdate } from "../contexts/ColorContext";
 
 import {
   Slider,
   SliderTrack,
   SliderFilledTrack,
   SliderThumb,
+  Container,
 } from "@chakra-ui/react";
 
 export default function Sliders() {
-  const colors = useContext(ColorContext);
-
-  console.log(colors);
-
-  const [red, setRed] = useState(0);
-  const [green, setGreen] = useState(0);
-  const [blue, setBlue] = useState(0);
+  const colors = useColors();
+  const changeColor = useColorUpdate();
 
   return (
-    <>
+    <Container mt={10}>
       <Slider
         min={0}
         max={255}
-        onChange={(value) => setRed(value)}
-        defaultValue={red}
+        value={colors.red}
+        onChange={(value) => changeColor({ ...colors, red: value })}
       >
         <SliderTrack>
           <SliderFilledTrack />
@@ -33,8 +29,8 @@ export default function Sliders() {
       <Slider
         min={0}
         max={255}
-        onChange={(value) => setGreen(value)}
-        defaultValue={blue}
+        value={colors.green}
+        onChange={(value) => changeColor({ ...colors, green: value })}
       >
         <SliderTrack>
           <SliderFilledTrack />
@@ -44,14 +40,14 @@ export default function Sliders() {
       <Slider
         min={0}
         max={255}
-        onChange={(value) => setBlue(value)}
-        defaultValue={green}
+        value={colors.blue}
+        onChange={(value) => changeColor({ ...colors, blue: value })}
       >
         <SliderTrack>
           <SliderFilledTrack />
         </SliderTrack>
         <SliderThumb />
       </Slider>
-    </>
+    </Container>
   );
 }

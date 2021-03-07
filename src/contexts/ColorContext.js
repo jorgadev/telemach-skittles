@@ -1,5 +1,30 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 
-export const colors = { red: 0, green: 0, blue: 0 };
+// Create context for color and color update
+const ColorContext = React.createContext();
+const ColorUpdateContext = React.createContext();
 
-export const ColorContext = React.createContext(colors);
+// Create custom hooks for using these contexts
+export function useColors() {
+  return useContext(ColorContext);
+}
+export function useColorUpdate() {
+  return useContext(ColorUpdateContext);
+}
+
+// Provider component which replaces ColorContext.Provider, takes a children and render it
+export function ColorProvider({ children }) {
+  const [colors, setColors] = useState({ red: 142, green: 3, blue: 246 });
+
+  const changeColor = (newColors) => {
+    setColors(newColors);
+  };
+
+  return (
+    <ColorContext.Provider value={colors}>
+      <ColorUpdateContext.Provider value={changeColor}>
+        {children}
+      </ColorUpdateContext.Provider>
+    </ColorContext.Provider>
+  );
+}
