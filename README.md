@@ -4,7 +4,7 @@
 
 Project built for Telemach employees to make them create avatar for gmail account easier. Just select colors and download .png ready to use.
 
-_Live demo: [telemach-skittles.herokuapp.com/](https://telemach-skittles.herokuapp.com/)_
+_Live demo: [telemach-skittles.herokuapp.com/](https://telemach-skittles.netlify.app/)_
 
 ![](header.png)
 
