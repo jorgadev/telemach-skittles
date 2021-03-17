@@ -33,7 +33,7 @@ function Telemach() {
       flexDirection="column"
     >
       <Center
-        boxSize="320px"
+        boxSize="300px"
         bg={`rgb(${colors.red}, ${colors.green}, ${colors.blue})`}
         borderRadius="50%"
         id="image"
